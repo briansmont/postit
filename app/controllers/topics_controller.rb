@@ -4,13 +4,14 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
 
   def new
     @topic = Topic.new
   end
 
-  def created
+  def create
     @topic = Topic.new
     @topic.title = params[:topic][:title]
     @topic.body = params[:topic][:body]
