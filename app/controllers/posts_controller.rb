@@ -12,8 +12,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new
-    @post.title = params[:id][:title]
-    @post.body = params[:id][:body]
+    @post.title = params[:post][:title]
+    @post.body = params[:post][:body]
     @topic = Topic.find(params[:topic_id])
     
     @post.topic = @topic

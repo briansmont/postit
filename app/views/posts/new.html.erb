@@ -1,2 +1,33 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Put up a post for this topic!</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <h5>Guidelines for posts:</h5>
+    <ul>
+      <li>Ask something new.</li>
+      <li>Be respectful.</li>
+      <li>Check your accuracy.</li>
+      <li>Be specific in requests.</li>
+    </ul>
+  </div>
+  
+  <div class="col-md-8">
+    <%= form_for [@topic, @post] do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post description" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.submit "Post it!", class: 'btn btn-success' %>
+      </div>
+      
+    <% end %>
+    
+  </div>
+
+</div>
