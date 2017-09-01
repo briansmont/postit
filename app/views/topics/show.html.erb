@@ -1,5 +1,5 @@
 <div class="row">
-  <h1><%= @topic.title %></h1>
+  <h1>Topic: <%= @topic.title %></h1>
   <p><small>Posted by <%= @topic.user.email %></small></p>
   <div class="col-md-4">
     <%= link_to "Edit", edit_topic_path(@topic), class: 'btn btn-success' %>
