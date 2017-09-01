@@ -8,11 +8,15 @@ Rails.application.routes.draw do
 
   get 'comments/edit'
 
-  devise_for :users
   resources :topics do
     resources :posts, except: [:index]  
-    resources :posts, except: [:index]
   end
+  
+  resources :posts, only: [] do
+    resources :comments, only: [:create, :destroy]
+  end
+  
+  devise_for :users
 
   
   
