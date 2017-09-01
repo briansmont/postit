@@ -49,3 +49,5 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Implement Bootstrap for styling
 gem 'bootstrap-sass'
+
+gem 'devise'
