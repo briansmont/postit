@@ -19,21 +19,11 @@
 
 
 
-    <h4>Comments from the Community:</h4>
+    
     <div>
-      
-      <% @post.comments.each do |comment| %>
-        <div class="media">
-          <div class="media-body">
-            <small><p class="media-heading">
-              <%= comment.body %>
-            </p></small>
-          </div>
-        </div>
-      
-      <% end %>
+
       <div>
-        <h3>Comments</h3>
+        <h3>Comments from the Community:</h3>
         <%= render @post.comments %>
       </div>
       
