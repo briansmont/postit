@@ -11,7 +11,7 @@
   <div class="media">
     <div class="media-body">
       <h5 class="media-heading">
-        <%= link_to topic.title, topic %>
+        <%= link_to topic.title, topic %> <small>posted by <b><%= topic.user.email %></b> about <b><%= time_ago_in_words(topic.created_at) %> ago</b></small>
       </h5>
     </div>
   </div>

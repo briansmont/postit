@@ -25,6 +25,6 @@ module RandomData
   end
   
   def self.random_email
-    "#{random_word}@#{random_word}.#random_word}"
+    "#{random_word}@#{random_word}.#{random_word}"
   end
 end
