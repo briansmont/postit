@@ -23,7 +23,13 @@
     <div>
 
       <div>
-        <h3>Comments from the Community:</h3>
+        <% if @post.comments.exists? %>
+          <h4>Comments from the Community:</h4>
+        <% else %>
+          <h4>Be the first to comment!</h4>
+        
+        <% end %>
+
         <%= render @post.comments %>
       </div>
       
