@@ -51,3 +51,5 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 
 gem 'devise'
+
+gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'

@@ -1,8 +1,8 @@
 require 'random_data'
 5.times do
   User.create!(
-    email: RandomData.random_email,
-    password: RandomData.random_sentence
+    email: Faker::Internet.email,
+    password: Faker::Internet.password
     
   )
 end
@@ -12,8 +12,8 @@ users = User.all
 15.times do 
   Topic.create!(
     user: users.sample,
-    title: RandomData.random_sentence,
-    body: RandomData.random_paragraph
+    title: Faker::Lorem.sentence,
+    body: Faker::Lorem.paragraph
   )
 end
 topics = Topic.all
@@ -22,8 +22,8 @@ topics = Topic.all
   Post.create!(
     user: users.sample,
     topic: topics.sample,
-    title: RandomData.random_sentence,
-    body: RandomData.random_paragraph
+    title: Faker::Seinfeld.quote,
+    body: Faker::Lorem.paragraph
   )
 end
 posts = Post.all
@@ -33,7 +33,7 @@ posts = Post.all
   Comment.create!(
     user: users.sample,
     post: posts.sample,
-    body: RandomData.random_paragraph
+    body: Faker::Seinfeld.quote
   )
 end
 
