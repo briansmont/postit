@@ -1,6 +1,9 @@
 class TopicsController < ApplicationController
   
   before_action :authenticate_user!
+  before_action :authorize_user, except: [:index, :show]
+  
+  
   
   def index
     @topics = Topic.all
@@ -60,5 +63,18 @@ class TopicsController < ApplicationController
       render :show
     end
   end
+  
+  
+  private
+  
+  def authorize_user
+    unless current_user.premium?
+      flash[:alert] = "You must be a premium member to perform this action. Upgrade and check out all the new things :)"
+      redirect_to topics_path
+    end
+    
+  end
+  
+  
   
 end
