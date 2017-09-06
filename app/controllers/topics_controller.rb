@@ -22,6 +22,9 @@ class TopicsController < ApplicationController
     @topic.title = params[:topic][:title]
     @topic.body = params[:topic][:body]
     
+    @topic.user = current_user
+    
+    
     if @topic.save
       flash[:notice] = "Topic was created, thanks!"
       redirect_to @topic
@@ -68,7 +71,7 @@ class TopicsController < ApplicationController
   private
   
   def authorize_user
-    unless current_user.premium?
+    unless current_user.premium? || current_user.admin?
       flash[:alert] = "You must be a premium member to perform this action. Upgrade and check out all the new things :)"
       redirect_to topics_path
     end

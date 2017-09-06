@@ -37,13 +37,28 @@ posts = Post.all
   )
 end
 
-user = User.first
-user.update_attributes!(
+admin = User.first
+admin.update_attributes!(
   email: 'briansmont830@gmail.com',
-  password: 'briansmont830'
+  password: 'briansmont830',
+  role: 'admin'
 )
 
+standard = User.create!(
+  email: 'standard@gmail.com',
+  password: 'standard',
+  role: 'standard'
+)
+
+premium = User.create!(
+  email: 'premium@gmail.com',
+  password: 'premium',
+  role: 'premium'
+)
+
+
 puts "Seed finished"
+
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"

@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
 
-  before_action :authorize_user, except: [:index, :show]
-
-
   def show
     @post = Post.find(params[:id])
   end
@@ -19,6 +16,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     
     @post.topic = @topic
+    @post.user = current_user
     
     if @post.save
       flash[:notice] = "Post was created, thanks!"
@@ -60,15 +58,7 @@ class PostsController < ApplicationController
     end
   end
   
-  private
-  
-  def authorize_user
-    unless current_user.premium?
-      flash[:alert] = "You must be a premium member to perform this action. Upgrade and check out all the new things :)"
-      redirect_to @topics_path
-    end
-    
-  end
+
   
   
 end
